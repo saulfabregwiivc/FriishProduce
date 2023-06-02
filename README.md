@@ -49,7 +49,14 @@ Currently supported:
 * Other
   * **Shockwave/Adobe Flash**
 
- ---
+<!-- ## To-Do
+- [ ] LZ77 compression on SNES VC and TG-16 HuCARD VC.
+- [X] NeoGeo VC injection support.
+- [ ] MSX / MSX2 VC injection support.
+- [ ] Commodore 64 VC injection support.
+- [ ] Support for more systems and homebrew emulators in emulator forwarder mode.
+- [ ] Multiple SWF support for Adobe Flash.
+- [ ] TurboGrafx-16 CD VC injection support. -->
 
 ## Credits
 This program uses the following third-party components and apps:
