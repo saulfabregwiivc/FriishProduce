@@ -1366,7 +1366,18 @@ namespace FriishProduce
                 // ----------------------------------------------------
                 else if (currentConsole == Platforms.Flash)
                 {
-                    await Task.Run(() => { U8.Unpack(Paths.WorkingFolder + "00000002.app", Paths.WorkingFolder_Content2); });
+                    // Run U8 extracting process
+                    string pPath = Paths.WorkingFolder + "u8it.exe";
+                    File.WriteAllBytes(pPath, Properties.Resources.U8it);
+                    using (Process p = Process.Start(new ProcessStartInfo
+                    {
+                        FileName = pPath,
+                        WorkingDirectory = Paths.WorkingFolder,
+                        Arguments = $"00000002.app content2",
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    }))
+                        p.WaitForExit();
 
                     Injectors.Flash Flash = new Injectors.Flash() { SWF = input[0] };
                     Flash.ReplaceSWF();
@@ -1379,7 +1390,17 @@ namespace FriishProduce
                     if (Custom.Checked && tImg.Get()) tImg.CreateSave(Platforms.Flash);
                     if (Custom.Checked) Flash.InsertSaveData(SaveDataTitle.Lines);
 
-                    await Task.Run(() => { U8.Pack(Paths.WorkingFolder_Content2, Paths.WorkingFolder + "00000002.app"); });
+                    // Run U8 packing process
+                    File.WriteAllBytes(pPath, Properties.Resources.U8it);
+                    using (Process p = Process.Start(new ProcessStartInfo
+                    {
+                        FileName = pPath,
+                        WorkingDirectory = Paths.WorkingFolder,
+                        Arguments = $"content2 00000002.app -pack",
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    }))
+                        p.WaitForExit();
                 }
 
                 // ----------------------------------------------------
