@@ -221,6 +221,10 @@ namespace FriishProduce
                         tplPath = Paths.WorkingFolder + "out.tpl";
                         embedded = true;
                         break;
+                    case Platforms.MSX:
+                        tplPath = Paths.WorkingFolder + "out.tpl";
+                        embedded = true;
+                        break;
                 }
                 if (embedded && !File.Exists(tplPath) && !usesWte) return;
                 else if (tplPath == null && !usesWte) return;
