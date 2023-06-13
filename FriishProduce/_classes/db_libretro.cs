@@ -54,7 +54,7 @@ namespace FriishProduce
                 { Platforms.PCE, "NEC - PC Engine - TurboGrafx 16" },
                 { Platforms.NeoGeo, "SNK - Neo Geo" },
                 { Platforms.MSX, "Microsoft - MSX" },
-                { Platforms.MSX, "Microsoft - MSX2" },
+                // { Platforms.MSX, "Microsoft - MSX2" },
             };
 
             foreach (KeyValuePair<Platforms, string> item in db_platforms)
