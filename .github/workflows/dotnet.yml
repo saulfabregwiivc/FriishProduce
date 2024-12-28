@@ -41,7 +41,8 @@ jobs:
       run: Compress-Archive -Path FriishProduce\bin\Release\* -DestinationPath FriishProduce_latest.zip
 
     - name: Upload release
-      uses: softprops/action-gh-release@v2, hudsonm62/short-sha@v1
+      uses: softprops/action-gh-release@v2
+      uses: hudsonm62/short-sha@v1
       with:
         tag_name: latest
         files: FriishProduce_latest.zip
