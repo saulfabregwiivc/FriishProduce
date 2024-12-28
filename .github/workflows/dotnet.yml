@@ -24,8 +24,8 @@ jobs:
 
     - name: Get commit SHA
       run: |
-        set a=$(git rev-parse --short HEAD)
-        echo SHORT_SHA=a >> $GITHUB_ENV
+        set $a=& git rev-parse --short HEAD
+        echo "SHORT_SHA=$a" >> $env:GITHUB_ENV
   
     - name: Setup MSBuild v1.1
       uses: microsoft/setup-msbuild@v1.1
