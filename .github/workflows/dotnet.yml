@@ -26,7 +26,7 @@ jobs:
       uses: hudsonm62/short-sha@v1
 
     - name: Get commit short SHA
-      run: echo "GIT_SHA="${{ steps.short-sha.outputs.sha }}"" >> ${GITHUB_ENV}
+      run: echo "GIT_SHA=${{ steps.short-sha.outputs.sha }}" >> ${GITHUB_ENV}
   
     - name: Setup MSBuild v1.1
       uses: microsoft/setup-msbuild@v1.1
