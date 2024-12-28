@@ -22,9 +22,6 @@ jobs:
   build:
     runs-on: windows-2019
 
-    env:
-      TRUNCATED_SHA: ${{ env.COMHASH }}
-
     steps:
     - uses: actions/checkout@v4
   
@@ -49,6 +46,8 @@ jobs:
       run: Compress-Archive -Path FriishProduce\bin\Release\* -DestinationPath FriishProduce_latest.zip
 
     - name: Upload release
+      env:
+        TRUNCATED_SHA: ${{ env.COMHASH }}
       uses: softprops/action-gh-release@v2
       with:
         tag_name: latest
