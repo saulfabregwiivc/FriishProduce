@@ -23,9 +23,9 @@ jobs:
         echo "DATE=$DATE" >> $env:GITHUB_ENV
 
     - name: Get commit SHA
-      shell: bash
+      uses: hudsonm62/short-sha@v1
       run: |
-        echo "GIT_SHA=${GITHUB_SHA}" >> ${GITHUB_ENV}
+        echo "GIT_SHA="${{ steps.short-sha.outputs.sha }}"" >> ${GITHUB_ENV}
   
     - name: Setup MSBuild v1.1
       uses: microsoft/setup-msbuild@v1.1
