@@ -25,7 +25,7 @@ jobs:
     - name: Get commit short SHA
       run: |
         echo TEMPSHA=$GITHUB_SHA
-        SHA1=$(echo TEMPSHA | cut -c1-8)
+        echo SHA1=$(echo TEMPSHA | cut -c1-8)
         echo "GIT_SHA1=SHA1" >> $env:GITHUB_ENV
   
     - name: Setup MSBuild v1.1
