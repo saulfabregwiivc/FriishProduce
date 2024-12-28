@@ -24,12 +24,7 @@ jobs:
 
     - name: Get commit short SHA
       id: shashort
-      run: echo "sha_short=$(git rev-parse --short)" >> $GITHUB_OUTPUT
-
-    - name: Check outputs
-      run: |
-        echo ${{ steps.shashort.outputs.sha_short }}
-        echo ${{ steps.shashort.outputs.sha_short }} >> ${GITHUB_ENV}
+      run: echo "GIT_SHA1=$(echo $GITHUB_SHA | cut -c1-7)" >> ${GITHUB_ENV}
   
     - name: Setup MSBuild v1.1
       uses: microsoft/setup-msbuild@v1.1
